@@ -17,14 +17,11 @@
                         
                         <?php
                         
-                        $sql = "SELECT * FROM users WHERE id=1 ";
-                        $result = $database->query($sql);
+                        $user = User::find_user_by_id(1);
                         
-                        while ($row = mysqli_fetch_array){
-                            username = 
-                        }
-                        
-                        
+                        $user->last_name = "Shilishali";
+                        $user->save();
+                       
                         ?>
                     </div>
                 </div>
