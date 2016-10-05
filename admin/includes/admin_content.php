@@ -17,11 +17,13 @@
                         
                         <?php
                         
-                        $user = User::find_user_by_id(1);
+                        $photo = Photo::find_all();
                         
-                        $user->last_name = "Shilishali";
-                        $user->save();
-                       
+                        foreach($photo as $photos) {
+                            
+                            echo $photo->id;
+                        }
+                        
                         ?>
                     </div>
                 </div>
