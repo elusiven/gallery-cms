@@ -23,6 +23,26 @@
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
+                        
+                        <?php $users = User::find_all(); ?>
+
+                        <table class="table table-bordered">
+                        <thead>
+                            <th>ID</th>
+                            <th>Username</th>   
+                            <th>First Name</th>
+                            <th>Last Name</th>                     
+                        </thead>
+                        <tbody>
+                        <?php foreach($users as $user): ?>
+                        <?php echo "<tr><td>" . $user->id . "</td>"; ?>
+                        <?php echo "<td>" . $user->username . "</td>"; ?>
+                        <?php echo "<td>" . $user->first_name . "</td>"; ?>
+                        <?php echo "<td>" . $user->last_name . "</td></tr>"; ?>
+                        <?php endforeach; ?>
+                        </tbody>    
+                        </table>
+                        
                     </div>
                 </div>
                 <!-- /.row -->

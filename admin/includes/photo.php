@@ -14,7 +14,7 @@ public $size;
     
 
 public $tmp_path;
-public $upload_directory = "upload/images";
+public $upload_directory = "upload\images";
 public $errors = array(
 
 
