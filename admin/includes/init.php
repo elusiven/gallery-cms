@@ -10,6 +10,11 @@
 
 */
 
+defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
+defined('SITE_ROOT') ? null : define('SITE_ROOT', DS . 'Applications' . DS . 'MAMP/htdocs/gallery-cms');
+defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT.DS.'admin'.DS.'includes');
+
+
 require_once("functions.php");
 require_once("new_config.php");
 require_once("database.php");
