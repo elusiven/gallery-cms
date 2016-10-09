@@ -12,6 +12,7 @@ if (empty($_GET['id'])) {
     if($photo) {
         
         $photo->delete_photo();
+        redirect("photos.php");
     } else {
         
         redirect("photos.php");

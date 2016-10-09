@@ -29,7 +29,6 @@
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Id</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Size</th>
@@ -37,14 +36,13 @@
                             </thead>
                             <tbody>
                                 <?php foreach($photos as $photo): ?>
-                                <?php echo "<tr><td><img src='{$photo->picture_path()}' width='150px'>"; ?>
-                                <div class="pictures_link">
-                                    <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
-                                    <a href="">Edit</a>
-                                    <a href="">View</a>
+                                <?php echo "<tr><td><img src='{$photo->picture_path()}' width='182px'>"; ?>
+                                <div class="pictures_link" style="padding-top: 10px;">
+                                    <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                    <a class="btn btn-warning" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
+                                    <a class="btn btn-success" href="">View</a>
                                 </div>
                                 </td>
-                                <?php echo "<td>{$photo->id}</td>"; ?>
                                 <?php echo "<td>{$photo->title}</td>"; ?>
                                 <?php echo "<td>{$photo->description}</td>"; ?>
                                 <?php echo "<td>{$photo->size}</td></tr>"; ?>
