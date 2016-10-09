@@ -9,7 +9,7 @@ class Db_object {
     
     public static function find_by_id($object_id) {
         
-        $the_result_array = static::find_this_query("SELECT * FROM " . static::$db_table . " WHERE " . reset(static::$db_table_fields) . " = $object_id LIMIT 1");
+        $the_result_array = static::find_this_query("SELECT * FROM " . static::$db_table . " WHERE id = $object_id LIMIT 1");
         
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }

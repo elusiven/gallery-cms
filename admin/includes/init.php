@@ -11,7 +11,7 @@
 */
 
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-defined('SITE_ROOT') ? null : define('SITE_ROOT', DS . 'Applications' . DS . 'MAMP\htdocs\gallery-cms');
+defined('SITE_ROOT') ? null : define('SITE_ROOT', 'C:' . DS . 'xampp\htdocs\projects\gallery-cms');
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT.DS.'admin'.DS.'includes');
 
 
