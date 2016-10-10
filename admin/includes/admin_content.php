@@ -17,12 +17,7 @@
                         
                         <?php
                         
-                        $photo = Photo::find_all();
                         
-                        foreach($photo as $photos) {
-                            
-                            echo $photo->id;
-                        }
                         
                         ?>
                     </div>
