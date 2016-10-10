@@ -1,6 +1,12 @@
 <?php include("includes/header.php"); ?>
     <?php include("includes/top_nav.php"); ?>
          <?php include("includes/side_nav.php"); ?>
+        
+        
+        
+        
+        
+        
         </nav>
 
     <!-- END OF HEADER AND NAVIGATION --> 
@@ -15,14 +21,36 @@
                         <h1 class="page-header">
                             Photos
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        <div class="col-md-12">
+                            
+                        <?php $photos = Photo::find_all(); ?>
+                            
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($photos as $photo): ?>
+                                <?php echo "<tr><td><img src='{$photo->picture_path()}' width='182px'>"; ?>
+                                <div class="pictures_link" style="padding-top: 10px;">
+                                    <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                    <a class="btn btn-warning" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
+                                    <a class="btn btn-success" href="">View</a>
+                                </div>
+                                </td>
+                                <?php echo "<td>{$photo->title}</td>"; ?>
+                                <?php echo "<td>{$photo->description}</td>"; ?>
+                                <?php echo "<td>{$photo->size}</td></tr>"; ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                            
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
