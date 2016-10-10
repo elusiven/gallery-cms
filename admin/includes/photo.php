@@ -4,17 +4,19 @@
 class Photo extends Db_object {
     
 protected static $db_table = "photos";
-protected static $db_table_fields = array('photo_id', 'title', 'description', 'filename', 'type', 'size');
-public $photo_id;
+protected static $db_table_fields = array('id', 'title', 'caption', 'description', 'filename', 'alternate_text', 'type', 'size');
+public $id;
 public $title;
+public $caption;
 public $description;
 public $filename;
+public $alternate_text;
 public $type;
 public $size;
     
 
 public $tmp_path;
-public $upload_directory = "upload/images";
+public $upload_directory = "images";
 public $errors = array(
 
 
@@ -53,10 +55,15 @@ public function set_file($file) {
         $this->size = $file['size'];
     }
 }
+    
+public function picture_path() {
+    
+    return $this->upload_directory.DS.$this->filename;
+}
 
 public function save() {
     
-    if($this->photo_id) {
+    if($this->id) {
         
         $this->update();
     } else {
@@ -96,6 +103,13 @@ public function save() {
     }
 }   
     
+public function delete_photo() {
     
+    if($this->delete()) {
+        
+        $target_path = SITE_ROOT.DS. 'admin' . DS . $this->picture_path();
+        return unlink($target_path) ? true : false;
+    }
+}   
     
 }
