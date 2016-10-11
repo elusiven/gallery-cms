@@ -17,7 +17,7 @@
                 $photo->alternate_text = $_POST['alternate_text'];
                 $photo->description = $_POST['description'];
                 
-                
+                $photo->save();
             }
             
         }
@@ -40,11 +40,16 @@
                         <h1 class="page-header">
                             Photos
                         </h1>
-                            <form action="edit_photo.php" method="POST">
+                            <form action="" method="POST">
                         <div class="col-md-8">
                           <div class="form-group">
                               <input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>">
                           </div>
+                          
+                          <div class="form-group">
+                              <a href=""><img src="<?php echo $photo->picture_path(); ?>" class="thumbnail" width="100%"></a>
+                          </div>
+                          
                            <div class="form-group">
                               <label for="caption">Caption</label>
                               <input type="text" name="caption" class="form-control" value="<?php echo $photo->caption; ?>">
