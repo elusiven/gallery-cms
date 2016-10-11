@@ -9,9 +9,8 @@
     
     <!-- WYSIWIG TEXT EDITOR FOR ADMIN -->
     
-    <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script src="js/scripts.js"></script>
-
+    <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script> tinymce.init({ selector:'textarea', theme: 'modern' }); </script>
     
 
 </body>

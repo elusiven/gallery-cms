@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach($photos as $photo): ?>
-                                <?php echo "<tr><td><img src='{$photo->picture_path()}' width='182px'>"; ?>
+                                <?php echo "<tr><td><img class='admin-photo-thumbnail' src='{$photo->picture_path()}'>"; ?>
                                 <div class="pictures_link" style="padding-top: 10px;">
                                     <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a class="btn btn-warning" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
