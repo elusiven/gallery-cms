@@ -15,9 +15,18 @@
                 $user->password = $_POST['password'];
                 $user->first_name = $_POST['first_name'];
                 $user->last_name = $_POST['last_name'];
-                $user->user_image = $_FILES['user_image'];
                 
-                $user->save();
+                if(empty($_FILES['user_image'])) {
+                    
+                    $user->save();
+                } else {
+                    
+                    $user->set_file($_FILES['user_image']);
+                    $user->save_profile_photo();
+                    $user->save();
+                }
+                
+                
             }
             
         }
@@ -40,7 +49,7 @@
                         <h1 class="page-header">
                             Editing <?php echo $user->username; ?>'s profile
                         </h1>
-                            <form action="" method="POST">
+                            <form action="" method="POST" enctype="multipart/form-data">
                         <div class="col-md-8">
                           <div class="form-group">
                               <label for="username">Username</label>
@@ -72,14 +81,15 @@
                             <div class="inside">
                               <div class="box-inner">
                                   <div class="form-group">
+                                  
                               <a href=""><img src="<?php echo $user->user_image_func(); ?>" class="thumbnail" width="100%"></a>
                           </div>
                               </div>
                               <div class="info-box-footer clearfix">
-                                <div class="info-box-delete pull-left">
-                                </div>
-                                <div class="info-box-update pull-right ">
-                                </div>   
+                               <div class="form-group">
+                               <label for="user_image">Upload New Image</label>
+                              <input type="file" name="user_image" class="form-control">
+                          </div>  
                               </div>
                             </div>          
                         </div>
