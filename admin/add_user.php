@@ -16,6 +16,7 @@
                 $user->last_name = $_POST['last_name'];
                 
                 $user->set_file($_FILES['user_image']);
+                
                 $user->save_profile_photo();
             }
             
@@ -39,7 +40,7 @@
                         <h1 class="page-header">
                            Adding new user
                         </h1>
-                            <form action="" method="POST">
+                            <form action="" method="POST" enctype="multipart/form-data">
                         <div class="col-md-8">
                           <div class="form-group">
                               <label for="username">Username</label>
@@ -58,7 +59,6 @@
                               <input type="text" name="last_name" class="form-control">
                           </div>
                           <div class="form-group">
-                              <label for="user_images">Profile Picture</label>
                               <input type="file" name="user_image" class="form-control">
                           </div>
                            
