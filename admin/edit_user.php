@@ -58,7 +58,11 @@
                               <label for="caption">Last Name</label>
                               <input type="text" name="last_name" class="form-control" value="<?php echo $user->last_name ?>">
                           </div>
+                     
                           
+                          <input type="submit" name="update" value="Update" class="btn btn-primary">
+   
+
                         </div>
                            <div class="col-md-4" >
                             <div  class="photo-info-box">
@@ -73,10 +77,8 @@
                               </div>
                               <div class="info-box-footer clearfix">
                                 <div class="info-box-delete pull-left">
-                                    <a  href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
                                 </div>
                                 <div class="info-box-update pull-right ">
-                                    <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
                                 </div>   
                               </div>
                             </div>          

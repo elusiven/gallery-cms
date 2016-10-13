@@ -15,15 +15,9 @@
                         <h1 class="page-header">
                             Users
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
-                        
+
+                       <a href="add_user.php" class="btn btn-primary">Add User</a>
+                       
                         <?php $users = User::find_all(); ?>
 
                         <table class="table">
