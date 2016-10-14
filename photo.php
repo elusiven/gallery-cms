@@ -1,3 +1,33 @@
+<?php 
+
+require_once("admin/includes/init.php");
+
+if(empty($_GET['id'])) {
+    
+    redirect("index.php");
+}
+
+$photo = Photo::find_by_id($_GET['id']);
+
+echo $photo->title;
+
+
+if(isset($_POST['submit'])) {
+
+$author = trim($_POST['author']);
+$body = trim($_POST['body']);
+
+$new_comment = Comment::create_comment($photo->id, $author, $body);
+    
+}
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
