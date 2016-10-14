@@ -175,9 +175,4 @@ class Db_object {
     
     
     
-    
-    
-    
-    
-    
 }
