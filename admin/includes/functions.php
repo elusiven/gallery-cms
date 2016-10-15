@@ -3,7 +3,7 @@
 function classAutoLoader($class) {
     
     $class = strtolower($class);
-    $the_path = "includes/{$class}.php";
+    $the_path = INCLUDES_PATH . DS . "{$class}.php";
     
     if(is_file($the_path) && !class_exists($class)) {
         
@@ -20,3 +20,10 @@ function redirect($location) {
 }
 
 spl_autoload_register('classAutoLoader');
+
+function output_message($message) {
+
+
+return $message;
+
+}
