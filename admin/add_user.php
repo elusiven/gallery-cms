@@ -2,27 +2,30 @@
     <?php include("includes/top_nav.php"); ?>
          <?php include("includes/side_nav.php"); ?>
         
-        <?php $user = new User(); ?>
         
-        <?php
+        
+<?php
             
-        if(isset($_POST['submit'])) {
-            
-            if($user) {
-                
-                $user->username = $_POST['username'];
-                $user->password = $_POST['password'];
-                $user->first_name = $_POST['first_name'];
-                $user->last_name = $_POST['last_name'];
-                
-                $user->set_file($_FILES['user_image']);
-                
-                $user->save_profile_photo();
-            }
-            
-        }
+      $user = new User();
 
-        ?>
+if(isset($_POST['submit'])) {
+
+    if($user) {
+
+        $user->username = $_POST['username'];
+        $user->first_name =$_POST['first_name'];
+        $user->last_name =$_POST['last_name'];
+        $user->password =$_POST['password'];
+
+
+        $user->set_file($_FILES['user_image']);
+        $user->upload_photo();
+        $user->save();
+        redirect("users.php");
+    }
+}
+
+?>
         
         
         
@@ -40,7 +43,7 @@
                         <h1 class="page-header">
                            Adding new user
                         </h1>
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="add_user.php" method="POST" enctype="multipart/form-data">
                         <div class="col-md-8">
                           <div class="form-group">
                               <label for="username">Username</label>
