@@ -16,7 +16,7 @@
 				<ul class="grid swipe-down" id="grid">
                        
                        <?php foreach($photos as $photo): ?>
-                        <li><a href="#"><img src="admin/<?php echo $photo->picture_path(); ?>" alt="dummy"><h3><?php echo $photo->title; ?></h3></a></li>
+                        <li><a href="photo.php?id=<?php echo $photo->id; ?>"><img src="admin/<?php echo $photo->picture_path(); ?>" alt="dummy"><h3><?php echo $photo->title; ?></h3></a></li>
                        <?php endforeach; ?> 
 				</ul>
 			</section>

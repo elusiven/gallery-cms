@@ -1,44 +1,57 @@
+<?php include("includes/header.php"); ?>
+
 <?php 
 
 require_once("admin/includes/init.php");
 
+
 if(empty($_GET['id'])) {
+
+
+redirect("index.php");
+
+} else {
     
-    redirect("index.php");
+    
 }
 
+
 $photo = Photo::find_by_id($_GET['id']);
+
 
 if(isset($_POST['submit'])) {
 
 $author = trim($_POST['author']);
 $body = trim($_POST['body']);
 
+
 $new_comment = Comment::create_comment($photo->id, $author, $body);
-    
-    if ($new_comment && $new_comment->save()) {
-    
-     redirect("photo.php?id={$photo->id}");   
-    } else {
-        
-        $message = "There is an error in saving your comment.";
-    }
+
+if($new_comment && $new_comment->save()) {
+
+redirect("photo.php?id={$photo->id}");
+
+
 } else {
-    
-    $author = "";
-    $body = "";
-    $message = "";
+
+
+$message = "There was some problems saving";
+
+
+}
+
+
+} else {
+
+$author = "";
+$body = "";
+
 }
 
 
 $comments = Comment::find_the_comments($photo->id);
 
-
-
 ?>
-
-
-<?php include("includes/header.php"); ?>
 
 
         </div>
@@ -76,11 +89,8 @@ $comments = Comment::find_the_comments($photo->id);
                 <hr>
 
                 <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+                <p class="lead"><?php echo $photo->caption; ?></p>
+                <p><?php echo $photo->description; ?></p>
 
                 <hr>
 
@@ -122,9 +132,15 @@ $comments = Comment::find_the_comments($photo->id);
 
             </div>
 
-          <?php include("includes/sidebar.php"); ?>
+ <div class="col-md-4">
+
+            
+                 <?php include("includes/sidebar.php"); ?>
+
+
 
         </div>
+        
         <!-- /.row -->
 
         <hr>
