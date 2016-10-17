@@ -15,14 +15,30 @@
                         <h1 class="page-header">
                             Comments
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                       
+                        <?php $comments = Comment::find_all(); ?>
+
+                        <table class="table">
+                        <thead>
+                            <th>ID</th>
+                            <th>Author</th>
+                            <th>Body</th>   
+                        </thead>
+                        <tbody>
+                       <?php foreach($comments as $comment): ?>
+                            <tr><td><?php echo $comment->id; ?></td>
+                                <td><?php echo $comment->author; ?>
+                                <div class="pictures_link" style="padding-top: 10px;">
+                                    <a class="btn btn-danger" href="delete_user.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                    <a class="btn btn-warning" href="edit_user.php?id=<?php echo $comment->id; ?>">Edit</a>
+                                    <a class="btn btn-success" href="">View</a>
+                                </div>
+                                </td>
+                                <?php echo "<td>{$comment->body}</td>"; ?>
+                                <?php endforeach; ?>
+                        </tbody>    
+                        </table>
+                        
                     </div>
                 </div>
                 <!-- /.row -->

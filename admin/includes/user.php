@@ -35,7 +35,7 @@ class User extends Db_object {
         return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
     }
       
-    public function save_profile_photo() {
+    public function upload_photo() {
     
         if(!empty($this->errors)) {
             

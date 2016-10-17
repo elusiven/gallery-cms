@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
     
     if($photo->save()) {
         
-        $message = "Photo Uploaded Successfuly";
+        $message = "<div class='alert alert-success'>Photo Uploaded Successfuly</div>";
     } else {
         
         $message = join("<br>", $photo->errors);
@@ -58,6 +58,7 @@ if(isset($_POST['submit'])) {
                         <div class=""></div>
 
                        <div class="col-md-6">
+                       <?php echo $message; ?>
                         <form action="upload.php" method="post" enctype="multipart/form-data">
                             
                             <div class="form-group">

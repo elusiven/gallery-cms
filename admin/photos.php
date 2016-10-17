@@ -40,7 +40,7 @@
                                 <div class="pictures_link" style="padding-top: 10px;">
                                     <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a class="btn btn-warning" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                                    <a class="btn btn-success" href="">View</a>
+                                    <a class="btn btn-success" href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
                                 </div>
                                 </td>
                                 <?php echo "<td>{$photo->title}</td>"; ?>
