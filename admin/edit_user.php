@@ -22,7 +22,7 @@
                 } else {
                     
                     $user->set_file($_FILES['user_image']);
-                    $user->save_profile_photo();
+                    $user->upload_photo();
                     $user->save();
                 }
                 
