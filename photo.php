@@ -132,14 +132,7 @@ $comments = Comment::find_the_comments($photo->id);
 
             </div>
 
- <div class="col-md-4">
 
-            
-                 <?php include("includes/sidebar.php"); ?>
-
-
-
-        </div>
         
         <!-- /.row -->
 

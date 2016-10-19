@@ -3,42 +3,22 @@
 
 <?php $photos = Photo::find_all(); ?>
 
-
         <div class="row">
-
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
+            <div class="col-md-12">
 			<!-- Top Navigation -->
-			
-	
-			<section class="grid-wrap">
 				<ul class="grid swipe-down" id="grid">
                        
                        <?php foreach($photos as $photo): ?>
                         <li><a href="photo.php?id=<?php echo $photo->id; ?>"><img src="admin/<?php echo $photo->picture_path(); ?>" alt="dummy"><h3><?php echo $photo->title; ?></h3></a></li>
                        <?php endforeach; ?> 
 				</ul>
-			</section>
-			
-            
-          
-         
-    	
+
             </div>
 
-
-
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-            
-                 <?php include("includes/sidebar.php"); ?>
-
-
-
-        </div>
+<!-- Blog Sidebar Widgets Column -->
+           
+      
         <!-- /.row -->
 
         <?php include("includes/footer.php"); ?>
