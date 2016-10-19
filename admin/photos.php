@@ -24,6 +24,8 @@
                         <div class="col-md-12">
                             
                         <?php $photos = Photo::find_all(); ?>
+                           
+                        <?php ; ?> 
                             
                         <table class="table">
                             <thead>
@@ -32,12 +34,13 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Size</th>
+                                    <th>Comments</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach($photos as $photo): ?>
                                 <?php echo "<tr><td><img class='admin-photo-thumbnail' src='{$photo->picture_path()}'>"; ?>
-                                <div class="pictures_link" style="padding-top: 10px;">
+                                <div class="action_links" style="padding-top: 10px;">
                                     <a class="btn btn-danger" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                     <a class="btn btn-warning" href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
                                     <a class="btn btn-success" href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
@@ -45,7 +48,8 @@
                                 </td>
                                 <?php echo "<td>{$photo->title}</td>"; ?>
                                 <?php echo "<td>{$photo->description}</td>"; ?>
-                                <?php echo "<td>{$photo->size}</td></tr>"; ?>
+                                <?php echo "<td>{$photo->size}</td>"; ?>
+                            <td><a href="photo_comment.php?id=<?php echo $photo->id; ?>"><?php echo Comment::CountRows($photo->id); ?></a></td></tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>

@@ -4,6 +4,17 @@
         </nav>
 
     <!-- END OF HEADER AND NAVIGATION --> 
+<?php
+
+if(empty($_GET['id'])) {
+    
+    redirect("photos.php");
+}
+
+$comments = Comment::find_the_comments($_GET['id']);
+$photo = Photo::find_by_id($_GET['id']);
+
+?>
        
         <div id="page-wrapper">
 
@@ -13,11 +24,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Comments
+                            Comments in <a href="../photo.php?id=<?php echo $_GET['id']; ?>"><?php echo $photo->title ?></a> photo
                         </h1>
+                        
+                        <?php echo $session->message; ?>
                        
-                        <?php $comments = Comment::find_all(); ?>
-
                         <table class="table">
                         <thead>
                             <th>ID</th>
@@ -29,7 +40,7 @@
                             <tr><td><?php echo $comment->id; ?></td>
                                 <td><?php echo $comment->author; ?>
                                 <div class="pictures_link" style="padding-top: 10px;">
-                                    <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                    <a class="btn btn-danger" href="delete_comment_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
                                 </div>
                                 </td>
                                 <?php echo "<td>{$comment->body}</td>"; ?>

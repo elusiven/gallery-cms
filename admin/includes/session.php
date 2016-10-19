@@ -4,11 +4,13 @@ class Session {
     
     private $signed_in = false;
     public $user_id;
+    public $count;
     
     
     function __construct() {
         
         session_start();
+        $this->visitor_count();
         $this->check_the_login();
         $this->check_message();
     }
@@ -74,6 +76,18 @@ class Session {
         
         $encrypted_password = password_hash($pass, PASSWORD_BCRYPT, ["cost" => 12]);
         return $encrypted_password;
+    }
+    
+    public function visitor_count() {
+        
+        if(isset($_SESSION['count'])) {
+            
+            return $this->count = $_SESSION['count']++;
+        } else {
+            
+            return $_SESSION['count'] = 1;
+        }
+        
     }
     
 }
