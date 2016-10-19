@@ -35,6 +35,16 @@ class Comment extends Db_object {
         return self::find_this_query($sql);
     }
     
+    public static function CountRows($p_id) {
+        
+        global $database;
+        
+        $sql = "SELECT COUNT(*) AS id FROM " . static::$db_table . " WHERE photo_id = $p_id";
+        $num = mysqli_fetch_array($database->query($sql));
+        $count = $num['id'];
+        
+        return $count;
+    }
 
 }
 
